@@ -1,7 +1,22 @@
-E = {2, 3, 1, 0, 4}
-U = {7, 8, 5, 6, 9}
+def armstrongNumber(x, y):
+    
+    for i in range(x, y + 1, 1):
+        temp, orgInt, newInt = i, i, 0 
+        digits = len(str(temp))
+        while temp != 0:
+            digit = temp % 10
+            newInt += (digit **digits)
+            temp = temp //10
 
-print("Union of E and U is: ", E | U)
-print("Intersection of E and U is: ", E & U)
-print("Set difference of E and U: ", E - U)
-print("Symmetric set difference of E and U: ", E ^ U)
+        if newInt == orgInt:
+            print(newInt, end = " ")
+        else:
+            continue
+
+def main():
+    x = int(input("Enter lower limit: "))
+    y = int(input("Enter upper limit: "))
+
+    armstrongNumber(x, y)
+
+main()
